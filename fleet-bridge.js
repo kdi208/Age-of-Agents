@@ -616,13 +616,13 @@ const serve = () => {
   server.listen(PORT, HOST, () => {
     const link = `http://${HOST}:${PORT}`;
     const hooked = [path.join(os.homedir(), '.claude', 'settings.json'), path.join(process.cwd(), '.claude', 'settings.local.json')]
-      .some((f) => { try { return fs.readFileSync(f, 'utf8').includes(HOOK_TAG); } catch { return false; } });
+      .some((f) => { try { return fs.readFileSync(f, 'utf8').replace(/\\/g, '').includes(HOOK_TAG); } catch { return false; } });
     console.log(`
   Fleet bridge is running.
 
   Open the HUD:    ${link}
   Token:           ${TOKEN}
-${HOSTED_HUD ? `  Or use the hosted HUD:  ${HOSTED_HUD.replace(/\/?$/, '/')}#bridge=${encodeURIComponent(link)}&token=${TOKEN}\n` : ''}${hooked ? '  Claude Code:     hooks found. Start or continue a session and it appears.' : '  Claude Code:     not connected yet. Run  ${CMD} setup  once, then start a session.'}
+${HOSTED_HUD ? `  Or use the hosted HUD:  ${HOSTED_HUD.replace(/\/?$/, '/')}#bridge=${encodeURIComponent(link)}&token=${TOKEN}\n` : ''}${hooked ? '  Claude Code:     hooks found. Start or continue a session and it appears.' : `  Claude Code:     not connected yet. Run  ${CMD} setup  once, then start a session.`}
 
   Any other agent can report in with one request:
     curl -X POST ${link}/api/agents -H "X-Fleet-Token: ${TOKEN}" \\
