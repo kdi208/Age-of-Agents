@@ -2,7 +2,7 @@
 // Fleet bridge: shows your Claude Code sessions, and anything else that speaks the
 // Fleet format, live in Age of Agents. No dependencies; needs Node 18 or newer.
 //
-// With Node 18+ you can run it straight from GitHub: npx github:kdi208/age-of-agents [setup]
+// With Node 18+ you can run it straight from GitHub: npx github:kdi208/Age-of-Agents [setup]
 //
 //   node fleet-bridge.js            start the bridge and open the HUD
 //   node fleet-bridge.js setup      add the Claude Code hooks to ~/.claude/settings.json
@@ -35,7 +35,7 @@ const SELF = path.resolve(__filename);
 const HOOK_TAG = 'fleet-bridge.js" hook';
 const APP_DIR = path.join(HOME_DIR, 'app');
 // How the person ran us, so the tips we print match: npx runs us through the "age-of-agents" bin.
-const CMD = ['age-of-agents', 'fleet-hud'].includes(path.basename(process.argv[1] || '')) ? 'npx github:kdi208/age-of-agents' : 'node fleet-bridge.js';
+const CMD = ['age-of-agents', 'fleet-hud'].includes(path.basename(process.argv[1] || '')) ? 'npx github:kdi208/Age-of-Agents' : 'node fleet-bridge.js';
 // A hosted copy of the HUD (for example on GitHub Pages) that can connect to this bridge.
 const HOSTED_HUD = process.env.FLEET_HUD_URL || (() => {
   try { return JSON.parse(fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8')).homepage || ''; } catch { return ''; }

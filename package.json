@@ -14,9 +14,9 @@
   "engines": {
     "node": ">=18"
   },
-  "homepage": "https://kdi208.github.io/age-of-agents/",
+  "homepage": "https://kdi208.github.io/Age-of-Agents/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kdi208/age-of-agents.git"
+    "url": "https://github.com/kdi208/Age-of-Agents.git"
   }
 }
