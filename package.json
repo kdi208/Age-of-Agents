@@ -1,9 +1,9 @@
 {
-  "name": "fleet-hud",
+  "name": "age-of-agents",
   "version": "0.1.0",
   "description": "An Age of Empires style control panel for a fleet of AI agents. Shows your Claude Code sessions, or any agent, live.",
   "bin": {
-    "fleet-hud": "fleet-bridge.js"
+    "age-of-agents": "fleet-bridge.js"
   },
   "files": [
     "fleet-bridge.js",
@@ -14,9 +14,9 @@
   "engines": {
     "node": ">=18"
   },
-  "homepage": "https://kdi208.github.io/fleet-hud/",
+  "homepage": "https://kdi208.github.io/age-of-agents/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kdi208/fleet-hud.git"
+    "url": "https://github.com/kdi208/age-of-agents.git"
   }
 }

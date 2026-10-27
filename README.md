@@ -1,11 +1,11 @@
-# Fleet HUD
+# Age of Agents
 
 An Age of Empires style control panel for a fleet of AI agents. Each agent is a unit on a map of your
 codebase. It walks to the folder it is working in, raises a `?` when it needs your approval and a `!` when
 it fails or gets blocked. An alert feed pings you, and the command card (Pause, Resume, Redirect, Stop,
 Approve, Deny) acts on the real agent.
 
-**Open it: [kdi208.github.io/fleet-hud](https://kdi208.github.io/fleet-hud/)**. It starts on a demo fleet.
+**Open it: [kdi208.github.io/age-of-agents](https://kdi208.github.io/age-of-agents/)**. It starts on a demo fleet.
 
 There are three ways to use it.
 
@@ -20,8 +20,8 @@ There are three ways to use it.
 You need Node 18 or newer. Nothing to download:
 
 ```sh
-npx github:kdi208/fleet-hud setup   # once: adds hooks to ~/.claude/settings.json (a backup is kept)
-npx github:kdi208/fleet-hud         # starts the bridge and opens the HUD at http://127.0.0.1:4545
+npx github:kdi208/age-of-agents setup   # once: adds hooks to ~/.claude/settings.json (a backup is kept)
+npx github:kdi208/age-of-agents         # starts the bridge and opens the HUD at http://127.0.0.1:4545
 ```
 
 The bridge also prints a link to the hosted HUD that is already connected to your computer. The first time
@@ -32,9 +32,9 @@ Prefer plain files? Clone this repo and run `node fleet-bridge.js setup`, then `
 
 Now start or continue any Claude Code session. It joins the fleet as a unit.
 
-- To try it in one project only, run `npx github:kdi208/fleet-hud setup --here` inside that project. This
+- To try it in one project only, run `npx github:kdi208/age-of-agents setup --here` inside that project. This
   writes `.claude/settings.local.json` instead.
-- To undo it, run `npx github:kdi208/fleet-hud remove` (or `remove --here`).
+- To undo it, run `npx github:kdi208/age-of-agents remove` (or `remove --here`).
 - When the bridge isn't running, the hooks exit at once and change nothing.
 
 Options: `--port 4545`, `--budget 50` (dollars, for the top bar), `--no-open`. Set the environment variable

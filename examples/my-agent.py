@@ -1,4 +1,4 @@
-# A minimal agent for the Fleet HUD: it reports what it is doing and obeys orders.
+# A minimal agent for Age of Agents: it reports what it is doing and obeys orders.
 # Start the bridge first (node fleet-bridge.js), then: python3 examples/my-agent.py
 import json, os, random, time, urllib.request
 

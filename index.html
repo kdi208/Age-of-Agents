@@ -1,4 +1,4 @@
-<title>Agent Fleet HUD</title>
+<title>Age of Agents</title>
 <style>
 /* Fixed 1380x862 game stage, scaled to fit; single dark look by design. The world under the HUD is drawn from the fleet snapshot (demo or live). */
 :root {
@@ -790,11 +790,11 @@ svg.ico { display: block; width: 100%; height: 100%; }
         <p class="mode">Now showing: <span id="cn-mode"></span><button id="cn-demo" class="pbtn">Show the demo</button></p>
         <h3>Claude Code on your computer</h3>
         <ol>
-          <li>Run <code>npx github:kdi208/fleet-hud setup</code> once. It adds hooks to Claude Code. You need Node 18 or newer.</li>
-          <li>Run <code>npx github:kdi208/fleet-hud</code>. It starts the bridge and opens this HUD, live.</li>
+          <li>Run <code>npx github:kdi208/age-of-agents setup</code> once. It adds hooks to Claude Code. You need Node 18 or newer.</li>
+          <li>Run <code>npx github:kdi208/age-of-agents</code>. It starts the bridge and opens this HUD, live.</li>
         </ol>
-        <p class="small"><span id="cn-kitline">Prefer files? Get them from <code>github.com/kdi208/fleet-hud</code> and run <code>node fleet-bridge.js</code> instead.</span> <button id="cn-kit" class="pbtn" hidden>Download fleet-hud.zip</button></p>
-        <p class="small">Every Claude Code session you start appears as a unit and walks to the folder it is working in. Approve, Deny, Pause, Stop and Redirect act on the real session. Undo the setup with <code>npx github:kdi208/fleet-hud remove</code>.</p>
+        <p class="small"><span id="cn-kitline">Prefer files? Get them from <code>github.com/kdi208/age-of-agents</code> and run <code>node fleet-bridge.js</code> instead.</span> <button id="cn-kit" class="pbtn" hidden>Download age-of-agents.zip</button></p>
+        <p class="small">Every Claude Code session you start appears as a unit and walks to the folder it is working in. Approve, Deny, Pause, Stop and Redirect act on the real session. Undo the setup with <code>npx github:kdi208/age-of-agents remove</code>.</p>
         <h3>Any other agent</h3>
         <p>Report its status with one request, <code>POST /api/agents</code> with <code>{"id", "status", "area", "task"}</code>, and read orders back from <code>GET /api/commands</code>. README.md has the full format.</p>
         <h3>Bridge already running?</h3>
@@ -1113,7 +1113,7 @@ const Bridge = (url, token) => {
       isLive() ? `Time since the bridge started. Showing agents reported by ${source.url || 'this computer'}.` : 'These agents are simulated. Click the plug button (top right) to connect your own.');
     tip($('#civ'), fleet.project?.name || 'Fleet', fleet.project?.description || '');
     const needs = agents.filter((a) => PROBLEMS.includes(a.status)).length;
-    document.title = (needs ? `(${needs}) ` : '') + 'Agent Fleet HUD';
+    document.title = (needs ? `(${needs}) ` : '') + 'Age of Agents';
   };
 
   // ----- selected agent: orders, portrait, stats, task and log -----
@@ -1728,9 +1728,9 @@ const Bridge = (url, token) => {
         const files = await Promise.all(names.map(async (name) => {
           const r = await fetch('kit/' + name);
           if (!r.ok) throw new Error('missing ' + name);
-          return { name: 'fleet-hud/' + name, data: new Uint8Array(await r.arrayBuffer()) };
+          return { name: 'age-of-agents/' + name, data: new Uint8Array(await r.arrayBuffer()) };
         }));
-        await d.save({ filename: 'fleet-hud.zip', data: zip(files) });
+        await d.save({ filename: 'age-of-agents.zip', data: zip(files) });
       } catch (e) {
         if (e?.code !== 'declined') $('#cn-err').textContent = 'The download did not work here. Ask for the kit wherever you found this page.';
       }
